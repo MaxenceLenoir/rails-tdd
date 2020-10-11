@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  fixtures :all
 
   it 'Create a customer' do
-    customer = customers(:paul)
+    customer = create(:customer)
 
-    expect(customer.name).to eq('Paul Lenoir')
+    expect(customer.name).to start_with('M.')
   end
 end
