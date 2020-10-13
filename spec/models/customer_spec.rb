@@ -13,4 +13,14 @@ RSpec.describe Customer, type: :model do
 
     expect(customer.vip).to be_truthy
   end
+
+  it 'usando attribute_for' do
+    attrs = attributes_for(:customer)
+    attrs_vip = attributes_for(:customer_vip)
+    customer = Customer.create(attrs)
+    customer_vip = Customer.create(attrs_vip)
+
+    expect(customer.full_name).to start_with('M.')
+    expect(customer_vip.vip).to be_truthy
+  end
 end
