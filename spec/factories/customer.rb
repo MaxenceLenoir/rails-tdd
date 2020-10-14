@@ -1,11 +1,10 @@
 FactoryBot.define do
   factory :customer do
-
     transient do
       upcased { false }
     end
     name { Faker::Name.name }
-    email { Faker::Internet.email }
+    sequence(:email, 35) { |n| "mon_email-#{n}@email.com" }
 
     trait :male do
       gender { 'M' }
