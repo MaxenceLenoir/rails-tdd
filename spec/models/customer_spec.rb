@@ -23,4 +23,15 @@ RSpec.describe Customer, type: :model do
     expect(customer.full_name).to start_with('M.')
     expect(customer_vip.vip).to be_truthy
   end
+
+  it 'Attibute transitoire' do
+    customer = create(:customer_default, upcased: true)
+    expect(customer.name).to eq(customer.name.upcase)
+  end
+
+  it 'Cliente VIP Masculino' do
+    customer = create(:customer_male_vip)
+    expect(customer.gender).to eq('M')
+    expect(customer.vip).to be_truthy
+  end
 end
