@@ -3,9 +3,6 @@ require 'rails_helper'
 RSpec.describe Customer, type: :model do
   it 'Create a customer' do
     customer = create(:customer)
-    customer2 = create(:customer)
-    puts customer.email
-    puts customer2.email
     expect(customer.full_name).to start_with('M.')
   end
 
