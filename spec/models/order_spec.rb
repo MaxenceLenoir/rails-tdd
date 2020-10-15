@@ -12,8 +12,7 @@ RSpec.describe Order, type: :model do
   end
 
   it 'has_many' do
-    customer = create(:customer, :with_orders, qtt_orders: 5)
-    p customer.orders
-    expect(customer.orders.count).to eq(5)
+    customer = create(:customer_with_orders)
+    expect(customer.orders.count).to eq(3)
   end
 end

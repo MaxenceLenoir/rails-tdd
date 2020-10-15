@@ -31,7 +31,7 @@ FactoryBot.define do
       end
     end
 
-    factory :customer_male, traits: [:male]
+    factory :customer_with_orders, traits: [:with_orders]
     factory :customer_female, traits: [:female]
     factory :customer_vip, traits: [:vip]
     factory :customer_default, traits: [:default]
