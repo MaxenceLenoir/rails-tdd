@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://jsonplaceholder.typicode.com/posts/2
+    uri: "<API-URL>/posts/2"
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Oct 2020 08:25:02 GMT
+      - Mon, 26 Oct 2020 08:18:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -27,8 +27,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d947d9b0f0c53f47a9b0236dabb1e56881602750302; expires=Sat, 14-Nov-20
-        08:25:02 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax
+      - __cfduid=d0c0c6beedd62d0929d7acc7f82aba4721603700339; expires=Wed, 25-Nov-20
+        08:18:59 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax
       X-Powered-By:
       - Express
       X-Ratelimit-Limit:
@@ -36,7 +36,7 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '999'
       X-Ratelimit-Reset:
-      - '1601407842'
+      - '1601416186'
       Vary:
       - Origin, Accept-Encoding
       Access-Control-Allow-Credentials:
@@ -56,17 +56,17 @@ http_interactions:
       Cf-Cache-Status:
       - HIT
       Age:
-      - '2338'
+      - '13149'
       Cf-Request-Id:
-      - 05ccf5e26c000072bd67b89000000001
+      - '060596499b0000edfb94a89000000001'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?lkg-colo=20&lkg-time=1602750303"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=Jm2Dr163KPtjVnohqlZiMWXxHtB2eNcv2FhTNtnsHlO2M%2BMJpy6RLnnSJBv9VAHE4xXcc0wyRQhuiZt9w95gBSX%2FEGT55Dme1N2mIoa19PpkyHVkHvyTpD9XxYxs"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 5e2825b0a83e72bd-AMS
+      - 5e82bfef5a0aedfb-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -76,5 +76,82 @@ http_interactions:
           "title": "qui est esse",
           "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
         }
-  recorded_at: Thu, 15 Oct 2020 08:25:02 GMT
+  recorded_at: Mon, 26 Oct 2020 08:18:59 GMT
+- request:
+    method: get
+    uri: "<API-URL>/posts/3"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Oct 2020 08:28:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dd3bda6df7f2469722811ac966f79cf441603700899; expires=Wed, 25-Nov-20
+        08:28:19 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '1000'
+      X-Ratelimit-Remaining:
+      - '999'
+      X-Ratelimit-Reset:
+      - '1600966520'
+      Vary:
+      - Origin, Accept-Encoding
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - max-age=43200
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - W/"11b-USacuIw5a/iXAGdNKBvqr/TbMTc"
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - HIT
+      Age:
+      - '8834'
+      Cf-Request-Id:
+      - '06059ed5d50000ee50143fc000000001'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=%2Ft%2FWAK4g39FDONkH34i9RrWH8ZyKJlbelhbJsXykzbWhWtA3PAG0tMo1PYsOS8PJzMwH2YOCbzWVzbKZip3MdhJulGJb2tRG8lsHqTKTaBjw1m2vMLy3nJky%2FPml"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5e82cd9c8fd6ee50-CDG
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "userId": 1,
+          "id": 3,
+          "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+          "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+        }
+  recorded_at: Mon, 26 Oct 2020 08:28:19 GMT
 recorded_with: VCR 6.0.0

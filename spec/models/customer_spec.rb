@@ -32,4 +32,13 @@ RSpec.describe Customer, type: :model do
     expect(customer.gender).to eq('M')
     expect(customer.vip).to be_truthy
   end
+
+  it 'Travel_to' do
+    travel_to Time.zone.local(2004, 11, 24, 0o1, 0o4, 44) do
+      @customer = create(:customer_vip)
+    end
+    puts @customer.created_at
+    puts Time.now
+    expect(@customer.created_at).to eq(Time.zone.local(2004, 11, 24, 0o1, 0o4, 44))
+  end
 end
