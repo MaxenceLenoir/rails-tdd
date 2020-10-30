@@ -36,10 +36,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'httparty'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'vcr'
   gem 'webmock'
-  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
