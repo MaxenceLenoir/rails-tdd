@@ -44,6 +44,12 @@ RSpec.describe CustomersController, type: :request do
       expect { post customers_path, params: { customer: customer_params } }.to change(Customer, :count).by(1)
     end
 
+    it 'with invalid attributes' do
+      login_as @member
+      customer_params = attributes_for(:customer, address: nil)
+      expect { post customers_path, params: { customer: customer_params } }.not_to change(Customer, :count)
+    end
+
     it '#show' do
       login_as @member
       get customer_path(@customer.id)
@@ -54,5 +60,11 @@ RSpec.describe CustomersController, type: :request do
       get customer_path(@customer.id)
       expect(response).to render_template(:show)
     end
+  end
+end
+
+RSpec.describe CustomersController, type: :controller do
+  it 'Route' do
+    should route(:get, '/customers').to(action: :index)
   end
 end
