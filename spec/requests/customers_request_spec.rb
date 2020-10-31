@@ -19,24 +19,40 @@ RSpec.describe CustomersController, type: :request do
   end
 
   describe 'As Logged Member' do
+    before do
+      @member = create(:member)
+      @customer = create(:customer)
+    end
+
+    it 'Content-Type' do
+      login_as @member
+      customer_params = attributes_for(:customer)
+      post customers_path, params: { customer: customer_params, format: :json }
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+    end
+
+    it 'Flash Notice' do
+      login_as @member
+      customer_params = attributes_for(:customer)
+      post customers_path, params: { customer: customer_params }
+      expect(flash[:notice]).to match(/successfully created/)
+    end
+
+    it 'with valid attributes' do
+      login_as @member
+      customer_params = attributes_for(:customer)
+      expect { post customers_path, params: { customer: customer_params } }.to change(Customer, :count).by(1)
+    end
+
     it '#show' do
-      member = create(:member)
-      customer = create(:customer)
-
-      login_as member
-
-      get customer_path(customer.id)
-      expect(response).to have_http_status(200)
+      login_as @member
+      get customer_path(@customer.id)
     end
 
     it '#render a :show template' do
-    member = create(:member)
-    customer = create(:customer)
-
-    login_as member
-
-    get customer_path(customer.id)
-    expect(response).to render_template(:show)
+      login_as @member
+      get customer_path(@customer.id)
+      expect(response).to render_template(:show)
+    end
   end
-  end 
 end
