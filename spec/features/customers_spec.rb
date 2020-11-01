@@ -6,6 +6,12 @@ RSpec.feature 'Customers', type: :feature, js: true do
     expect(page).to have_current_path(customers_path)
   end
 
+  it 'Ajax' do
+    visit(customers_path)
+    click_link('Add Message')
+    expect(page).to have_content('Yes!')
+  end
+
   it 'Creates a customer' do
     member = create(:member)
     login_as(member, scope: :member)
