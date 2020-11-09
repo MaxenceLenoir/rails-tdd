@@ -37,6 +37,7 @@ group :development, :test do
   gem 'faker'
   gem 'httparty'
   gem 'rails-controller-testing'
+  gem 'rspec-json_expectations'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.0'
