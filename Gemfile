@@ -36,6 +36,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'httparty'
+  gem 'json_matchers'
   gem 'rails-controller-testing'
   gem 'rspec-json_expectations'
   gem 'rspec-rails'

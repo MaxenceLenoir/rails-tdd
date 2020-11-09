@@ -14,6 +14,11 @@
 
 RSpec.describe '/customers', type: :request do
   describe 'Get /customers' do
+    it 'JSON Schema' do
+      get '/customers/1.json'
+      expect(response).to match_json_schema("customer")
+    end
+
     it 'works!' do
       get customers_path
       expect(response).to have_http_status(200)
