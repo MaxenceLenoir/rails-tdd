@@ -21,7 +21,6 @@ RSpec.describe '/customers', type: :request do
 
     it 'JSON works!' do
       get('/customers.json')
-      expect(response).to have_http_status(200)
       expect(response.body).to include_json([
           id: /\d/,
           name: (be_kind_of String),
@@ -31,12 +30,56 @@ RSpec.describe '/customers', type: :request do
 
     it 'show - JSON works!' do
       get('/customers/1.json')
-      expect(response).to have_http_status(200)
       expect(response.body).to include_json(
         id: 1,
         name: (be_kind_of String),
         email: (be_kind_of String)
       )
+    end
+
+    it 'create - JSON works!' do
+      member = create(:member)
+      login_as(member, scope: :member)
+
+      headers = { 'ACCEPT' => 'application/json' }
+
+      customer_params = attributes_for(:customer)
+
+      post '/customers.json', params: { customer: customer_params }, headers: headers
+      expect(response.body).to include_json(
+        id: /\d/,
+        name: customer_params[:name],
+        email: customer_params.fetch(:email)
+      )
+    end
+
+    it 'upadte - JSON works!' do
+      member = create(:member)
+      login_as(member, scope: :member)
+
+      headers = { 'ACCEPT' => 'application/json' }
+
+      customer = Customer.first
+      customer.name += 'modified'
+
+      patch "/customers/#{customer.id}.json", params: { customer: customer.attributes }, headers: headers
+      expect(response.body).to include_json(
+        id: /\d/,
+        name: customer.name,
+        email: customer.email
+      )
+    end
+
+    it 'destroy - JSON works!' do
+      member = create(:member)
+      login_as(member, scope: :member)
+
+      headers = { 'ACCEPT' => 'application/json' }
+
+      customer = Customer.first
+
+      expect { delete "/customers/#{customer.id}.json", headers: headers }.to change(Customer, :count).by(-1)
+      expect(response).to have_http_status(204)
     end
   end
 end
